@@ -1,6 +1,7 @@
 INSERIR_RECEITA = 1
 VISUALIZAR_RECEITAS = 2
-SAIR = 3
+REMOVER_RECEITA = 3
+SAIR = 4
 
 def bem_vindo()
   puts "Bem vindo ao Cookbook, sua rede social de receitas!"
@@ -9,6 +10,7 @@ end
 def menu()
   puts "[#{INSERIR_RECEITA}] Cadastrar uma receita"
   puts "[#{VISUALIZAR_RECEITAS}] Ver todas receitas"
+  puts "[#{REMOVER_RECEITA}] Remover última receita cadastrada"
   puts "[#{SAIR}] Sair"
   
   print "Escolha uma opção: "
@@ -48,6 +50,9 @@ while (opcao != SAIR) do
     receitas << inserir_receita()
   elsif (opcao == VISUALIZAR_RECEITAS)
     imprimir_receitas(receitas)
+  elsif (opcao == REMOVER_RECEITA)
+    receitas.pop
+    puts "Receita removida com sucesso!"
   else
     puts "Opção inválida!"
   end
